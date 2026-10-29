@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width, initial-scaled=1">  
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="number1" placeholder="Enter first number">
+    <br>
+    <select id="operation">
+        <option value="+">choose an operation</option>
+        <option value="+">Addition</option>
+        <option value="-">Subtraction</option>
+        <option value="*">Multiplication</option>
+        <option value="/">Division</option>
+    </select>
+    <br><br>
+    <input type="number" id="number2" placeholder="Enter second number">
+    <br><br>
+
+    <button onclick ="calculate()">calculator</button>
+
+    <h2 id="result">This is the result:</h2>
+
+    <div id="page">
+        <h1 id="title">Sample Javascript</h1>
+        <button onclick="changeblue()">Blue</button>
+        <button onclick="changered()">Red</button>
+        <button onclick="changegreen()">Green</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="changetext()">Change Text</button>
+       <button onclick="resetText()">Reset Text</button>
+    </div>
+    
+    <script>
+        
+        function changeblue() {
+            document.getElementById("page").style.backgroundColor = "blue";
+        }
+
+        function changered() {
+            document.getElementById("page").style.backgroundColor = "red";
+        }
+
+        function changegreen() {
+            document.getElementById("page").style.backgroundColor = "green";
+        }
+
+        function reset() {
+            document.getElementById("page").style.backgroundColor = "white";
+        }
+
+        function changetext() {
+            document.getElementById("title").innerHTML = "Hello, It's me!";
+        }
+
+        const originalText = document.getElementById("title").textContent;
+        function resetText() {
+            document.getElementById("title").textContent = originalText;
+        }
+    </script>
+
+
+
+
+
+
+
+
+        <p>© 2024 Simple Calculator. All rights reserved.</p>
+
+    <script>
+        function calculate() {
+            let num1 = Number(document.getElementById("number1").value);
+            let num2 = Number(document.getElementById("number2").value);
+            let operation = document.getElementById("operation").value;
+
+            let result;
+
+            if (operation === "+") {
+                result = num1 + num2;
+            } else if (operation === "-"){
+                result = num1 - num2;
+            } else if (operation === "*"){
+                result = num1 * num2;
+            } else if (operation === "/"){
+                if (num2 === 0) {
+                    alert("Cannot divided by zero!");
+                    return;
+                } 
+                result = num1 / num2;   
+            } else {
+                alert("Invalid operation");
+                return;
+            } 
+            document.getElementById("result").innerHTML = "result:" + result
+           
+        }
+    </script>        
+
+</body> 
